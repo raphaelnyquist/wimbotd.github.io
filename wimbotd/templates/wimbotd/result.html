@@ -1,0 +1,6 @@
+{% extends 'wimbotd/layout.html' %}
+
+{% block body %}
+    <h1>{{ output }}</h1>
+    <a href="{% url 'wimbotd:index' %}">Evaluate another date</a>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'wimbotd/layout.html' %}
+
+{% block body %}
+    <h1>Choose the day you would like to evaluate:</h1>
+
+    <div id="form">
+        <form action="result" method="POST">
+            {% csrf_token %}
+            <div class="label">
+                Weekday:
+            </div>
+            <select id="day" name="day">
+                <option value="sunday">Sunday</option>
+                <option value="monday">Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+                <option value="saturday">Saturday</option>
+            </select>
+
+            <div class="label">
+                Date:
+            </div>
+            <select id="dd" name="dd">
+                {% for dd in month_days %}
+                <option value="{{ dd }}">{{ dd }}</option>
+                {% endfor %}
+            </select>
+            <div class="label">
+                Month:
+            </div>
+            <select id="mm" name="mm">
+                {% for mm in months %}
+                <option value="{{ mm }}">{{ mm }}</option>
+                {% endfor %}
+            </select>
+            <div style="border-top: 1px solid white; padding-top: 10px; width: 100%">
+            </div>
+            <input type="submit">
+        </form>
+    </div>
+{% endblock %}
